@@ -1,4 +1,4 @@
-package com.example.temp;
+package com.DataBase;
 
 import org.hibernate.*;
 import org.hibernate.boot.registry.BootstrapServiceRegistryBuilder;

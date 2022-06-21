@@ -1,4 +1,4 @@
-package com.example.temp;
+package com.DataBase;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

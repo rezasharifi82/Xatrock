@@ -1,4 +1,4 @@
-package com.example.temp;
+package com.DataBase;
 
 import jakarta.persistence.*;
 
@@ -9,8 +9,11 @@ public class Lesson {
     @Column(name = "idLesson", nullable = false)
     private Integer id;
 
-    @Column(name = "memberid", nullable = false, length = 45)
-    private String memberid;
+    @Column(name = "memberid", nullable = false)
+    private Integer memberid;
+
+    @Column(name = "lessoname", nullable = false, length = 45)
+    private String lessoname;
 
     public Integer getId() {
         return id;
@@ -20,12 +23,20 @@ public class Lesson {
         this.id = id;
     }
 
-    public String getMemberid() {
+    public Integer getMemberid() {
         return memberid;
     }
 
-    public void setMemberid(String memberid) {
+    public void setMemberid(Integer memberid) {
         this.memberid = memberid;
+    }
+
+    public String getLessoname() {
+        return lessoname;
+    }
+
+    public void setLessoname(String lessoname) {
+        this.lessoname = lessoname;
     }
 
 }
