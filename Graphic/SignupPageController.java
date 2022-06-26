@@ -66,12 +66,12 @@ public class SignupPageController implements Initializable {
     private Label PaswordLevelNotify;
     @FXML
     private AnchorPane signupPage;
-   Stage stage1 ;
+   
   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         passwordLevelProgressBar.setStyle("-fx-accent: green;");
-       stage1.setFullScreen(true);
+      
         
         
     }    
