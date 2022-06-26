@@ -7,15 +7,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1312.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="xatrock.AboutXatrockPageController">
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1312.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xatrock.AboutXatrockPageController">
     <stylesheets>
         <URL value="@aboutxatrockpage.css" />
       <URL value="@background.css" />
     </stylesheets>
    <children>
-      <Label layoutX="565.0" layoutY="164.0" text="Xatrock">
+      <Label layoutX="520.0" layoutY="164.0" prefHeight="111.0" prefWidth="328.0" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );" text="Xatrock">
          <font>
-            <Font name="Segoe Print Bold" size="46.0" />
+            <Font name="Segoe Print Bold" size="63.0" />
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="593.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );">
@@ -23,10 +23,5 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="493.0" layoutY="246.0" text="about Xatroxk company">
-         <font>
-            <Font size="29.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>
