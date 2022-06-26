@@ -10,10 +10,11 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1312.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xatrock.HomePageController">
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="900.0" prefWidth="1312.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xatrock.HomePageController">
    <children>
       <ImageView fitHeight="105.0" fitWidth="101.0" layoutX="1138.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -29,58 +30,64 @@
         <menus>
           <Menu mnemonicParsing="false" text="profile">
             <items>
-              <MenuItem mnemonicParsing="false" text="edite profile" />
-                  <MenuItem mnemonicParsing="false" text="log out" />
+              <MenuItem fx:id="editeProfileMenue" mnemonicParsing="false" text="edite profile" />
+                  <MenuItem fx:id="logoutMenue" mnemonicParsing="false" onAction="#logoutMenueHandler" text="log out">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="X" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="lessons">
             <items>
-                  <MenuItem mnemonicParsing="false" text="physic" />
-                  <MenuItem mnemonicParsing="false" text="mathematic" />
-                  <MenuItem mnemonicParsing="false" text="programming" />
-                <MenuItem mnemonicParsing="false" text="logical circuit" />
+                  <MenuItem fx:id="physicMenue" mnemonicParsing="false" text="physic" />
+                  <MenuItem fx:id="mathematicMenue" mnemonicParsing="false" text="mathematic" />
+                  <MenuItem fx:id="programmingMenue" mnemonicParsing="false" text="programming" />
+                <MenuItem fx:id="logicalcircuitMenue" mnemonicParsing="false" text="logical circuit" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <Menu mnemonicParsing="false" text="exams">
+                  <Menu fx:id="examMenue" mnemonicParsing="false" text="exams">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="physic" />
-                        <MenuItem mnemonicParsing="false" text="logical circuit" />
-                        <MenuItem mnemonicParsing="false" text="mathematic" />
-                        <MenuItem mnemonicParsing="false" text="programming" />
+                        <MenuItem fx:id="physicExamMenue" mnemonicParsing="false" text="physic" />
+                        <MenuItem fx:id="logicalcircuitExamMenue" mnemonicParsing="false" text="logical circuit" />
+                        <MenuItem fx:id="mathematicExamMenue" mnemonicParsing="false" text="mathematic" />
+                        <MenuItem fx:id="programmingExamMenue" mnemonicParsing="false" text="programming" />
                      </items>
                   </Menu>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="aboutMenue" mnemonicParsing="false" text="About">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="A" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <Button fx:id="messengertButton" focusTraversable="false" layoutX="370.0" layoutY="27.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="92.0" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.8) , 20,0,0,0 ); -fx-background-color: #B5F0FD;" text="messenger" />
+      <Button fx:id="messengertButton" focusTraversable="false" layoutX="370.0" layoutY="25.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="92.0" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.8) , 20,0,0,0 ); -fx-background-color: #B5F0FD;" text="messenger" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="826.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );">
          <image>
-            <Image url="@../../pictures/sad.png" />
+            <Image url="@book.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="440.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );">
          <image>
-            <Image url="@../../pictures/sad.png" />
+            <Image url="@book.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="826.0" layoutY="575.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );">
          <image>
-            <Image url="@../../pictures/sad.png" />
+            <Image url="@book.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="440.0" layoutY="668.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );">
          <image>
-            <Image url="@../../pictures/sad.png" />
+            <Image url="@book.png" />
          </image>
       </ImageView>
       <ImageView fx:id="logoutLabel" fitHeight="63.0" fitWidth="60.0" layoutX="262.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../pictures/sdf.png" />
+            <Image url="@logout.png" />
          </image>
       </ImageView>
       <Button fx:id="mathematicButton" focusTraversable="false" layoutX="873.0" layoutY="435.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="112.0" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 ); -fx-background-color: #B5F0FD;" text="mathematic" />
@@ -108,7 +115,7 @@
          </font>
       </Label>
       <Separator layoutX="14.0" layoutY="414.0" prefWidth="200.0" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );" />
-      <Separator layoutX="532.0" layoutY="200.0" prefHeight="50.0" prefWidth="320.0" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );" />
+      <Separator layoutX="532.0" layoutY="202.0" prefHeight="50.0" prefWidth="320.0" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );" />
       <Label layoutX="41.0" layoutY="650.0" text="calender">
          <font>
             <Font name="Segoe Print" size="34.0" />
@@ -117,7 +124,7 @@
       <Separator layoutX="14.0" layoutY="708.0" prefWidth="200.0" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );" />
       <ImageView fx:id="clock" fitHeight="150.0" fitWidth="200.0" layoutX="40.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../pictures/pngtree-vector-clock-icon-png-image_322077-removebg-preview.png" />
+            <Image url="@clock.png" />
          </image>
       </ImageView>
    </children>
