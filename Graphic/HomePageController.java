@@ -3,7 +3,14 @@ package xatrock;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import javafx.animation.AnimationTimer;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,13 +19,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 
 public class HomePageController implements Initializable {
@@ -44,38 +54,84 @@ public class HomePageController implements Initializable {
     @FXML
     private ImageView clock;
     @FXML
-    private MenuItem editeProfileMenue;
-    @FXML
-    private MenuItem logoutMenue;
-    @FXML
-    private MenuItem physicMenue;
-    @FXML
-    private MenuItem mathematicMenue;
-    @FXML
-    private MenuItem programmingMenue;
-    @FXML
-    private MenuItem logicalcircuitMenue;
-    @FXML
     private Menu examMenue;
-    @FXML
-    private MenuItem physicExamMenue;
-    @FXML
-    private MenuItem logicalcircuitExamMenue;
-    @FXML
-    private MenuItem mathematicExamMenue;
-    @FXML
-    private MenuItem programmingExamMenue;
-    @FXML
-    private MenuItem aboutMenue;
-    @FXML
     private AnchorPane pane;
+    @FXML
+    private MenuItem editeProfileMenu;
+    @FXML
+    private MenuItem logoutMenu;
+    @FXML
+    private MenuItem physicMenu;
+    @FXML
+    private MenuItem mathematicMenu;
+    @FXML
+    private MenuItem programmingMenu;
+    @FXML
+    private MenuItem logicalcircuitMenu;
+    @FXML
+    private MenuItem physicExamMenu;
+    @FXML
+    private MenuItem logicalcircuitExamMenu;
+    @FXML
+    private MenuItem mathematicExamMenu;
+    @FXML
+    private MenuItem programmingExamMenu;
+    @FXML
+    private MenuItem aboutMenu;
+    @FXML
+    private Menu themMenu;
+    @FXML
+    private AnchorPane homePane;
+    @FXML
+    private CheckMenuItem darkThemeCheckMenu;
+    @FXML
+    private Label timeLabel;
+    @FXML
+    private Label dateLabel;
+    @FXML
+    private Label lessonSeparator;
+    @FXML
+    private Label title;
+    @FXML
+    private Label eventSeparator;
+    @FXML
+    private Label calenderSeparetor;
+    @FXML
+    private Label dateSeparator;
+    @FXML
+    private Button logoutButton;
 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+    AnimationTimer timer = new AnimationTimer() {
+    @Override
+    public void handle(long now) {
+    timeLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+    dateLabel.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
+      }
+    };
+      timer.start();
     }    
+
+   
+   
+        
+     
     @FXML
-    private void logoutMenueHandler(ActionEvent e) throws IOException{
+    private void logoutMenuHandler(ActionEvent e) throws IOException{
+       FXMLLoader loader = new FXMLLoader();
+       loader.setLocation(getClass().getResource("LoginPage.fxml"));
+       Parent ReportManager = loader.load();
+       Scene ReportManagerScene = new Scene(ReportManager);
+       Stage window = (Stage)homePane.getScene().getWindow();
+       window.setScene(ReportManagerScene); 
+       window.show();
+    
+    }
+    private void editeprofileMenuHandler(ActionEvent e) throws IOException{
        FXMLLoader loader = new FXMLLoader();
        loader.setLocation(getClass().getResource("LoginPage.fxml"));
        Parent ReportManager = loader.load();
@@ -85,8 +141,7 @@ public class HomePageController implements Initializable {
        window.show();
     
     }
-    @FXML
-    private void editeprofileMenueHandler(ActionEvent e) throws IOException{
+    private void mathematicMenuHandler(ActionEvent e) throws IOException{
        FXMLLoader loader = new FXMLLoader();
        loader.setLocation(getClass().getResource("LoginPage.fxml"));
        Parent ReportManager = loader.load();
@@ -96,8 +151,7 @@ public class HomePageController implements Initializable {
        window.show();
     
     }
-    @FXML
-    private void mathematicMenueHandler(ActionEvent e) throws IOException{
+    private void physicMenuHandler(ActionEvent e) throws IOException{
        FXMLLoader loader = new FXMLLoader();
        loader.setLocation(getClass().getResource("LoginPage.fxml"));
        Parent ReportManager = loader.load();
@@ -107,8 +161,7 @@ public class HomePageController implements Initializable {
        window.show();
     
     }
-    @FXML
-    private void physicMenueHandler(ActionEvent e) throws IOException{
+    private void programmingMenuHandler(ActionEvent e) throws IOException{
        FXMLLoader loader = new FXMLLoader();
        loader.setLocation(getClass().getResource("LoginPage.fxml"));
        Parent ReportManager = loader.load();
@@ -118,8 +171,7 @@ public class HomePageController implements Initializable {
        window.show();
     
     }
-    @FXML
-    private void programmingMenueHandler(ActionEvent e) throws IOException{
+    private void logicalCircuitMenuHandler(ActionEvent e) throws IOException{
        FXMLLoader loader = new FXMLLoader();
        loader.setLocation(getClass().getResource("LoginPage.fxml"));
        Parent ReportManager = loader.load();
@@ -129,8 +181,7 @@ public class HomePageController implements Initializable {
        window.show();
     
     }
-    @FXML
-    private void logicalCircuitMenueHandler(ActionEvent e) throws IOException{
+    private void mathematicExamMenuHandler(ActionEvent e) throws IOException{
        FXMLLoader loader = new FXMLLoader();
        loader.setLocation(getClass().getResource("LoginPage.fxml"));
        Parent ReportManager = loader.load();
@@ -140,8 +191,7 @@ public class HomePageController implements Initializable {
        window.show();
     
     }
-    @FXML
-    private void mathematicExamMenueHandler(ActionEvent e) throws IOException{
+    private void physicExamMenuHandler(ActionEvent e) throws IOException{
        FXMLLoader loader = new FXMLLoader();
        loader.setLocation(getClass().getResource("LoginPage.fxml"));
        Parent ReportManager = loader.load();
@@ -151,8 +201,7 @@ public class HomePageController implements Initializable {
        window.show();
     
     }
-    @FXML
-    private void physicExamMenueHandler(ActionEvent e) throws IOException{
+    private void programmingExamMenuHandler(ActionEvent e) throws IOException{
        FXMLLoader loader = new FXMLLoader();
        loader.setLocation(getClass().getResource("LoginPage.fxml"));
        Parent ReportManager = loader.load();
@@ -162,8 +211,7 @@ public class HomePageController implements Initializable {
        window.show();
     
     }
-    @FXML
-    private void programmingExamMenueHandler(ActionEvent e) throws IOException{
+    private void logicalCircuitExamMenuHandler(ActionEvent e) throws IOException{
        FXMLLoader loader = new FXMLLoader();
        loader.setLocation(getClass().getResource("LoginPage.fxml"));
        Parent ReportManager = loader.load();
@@ -171,17 +219,70 @@ public class HomePageController implements Initializable {
        Stage window = (Stage)pane.getScene().getWindow();
        window.setScene(ReportManagerScene); 
        window.show();
-    
     }
     @FXML
-    private void logicalCircuitExamMenueHandler(ActionEvent e) throws IOException{
-       FXMLLoader loader = new FXMLLoader();
-       loader.setLocation(getClass().getResource("LoginPage.fxml"));
+    private void logoutButtonHandler (ActionEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
+        scene = new Scene(root);
+        scene = logoutButton.getScene();
+        root.translateYProperty().set(scene.getHeight());
+        homePane.getChildren().add(root);
+        Timeline timeLine = new Timeline();
+        KeyValue kv = new KeyValue(root.translateYProperty(),0,Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1) , kv);
+        timeLine.getKeyFrames().add(kf);
+        timeLine.play();
+        
+        
+
+    }
+
+    
+    @FXML
+    private void themeManager(ActionEvent e){
+        if(darkThemeCheckMenu.isSelected()){
+     homePane.setStyle("-fx-background-image:url('/xatrock/backgroundDark.png');");
+     timeLabel.setStyle("-fx-text-fill:white;");
+     dateSeparator.setStyle("-fx-text-fill:white;");
+     eventSeparator.setStyle("-fx-text-fill:white;");
+     dateLabel.setStyle("-fx-text-fill:white;");
+     calenderSeparetor.setStyle("-fx-text-fill:white;");
+     lessonSeparator.setStyle("-fx-text-fill:white;");
+     title.setStyle("-fx-text-fill:white;");
+     nameLabel.setStyle("-fx-text-fill:white;");
+     clock.setImage(new Image("/xatrock/lightClock.png"));
+     logoutLabel.setImage(new Image("/xatrock/lightLogout.png"));
+     
+        }
+      else if(darkThemeCheckMenu.isSelected() == false){
+          homePane.setStyle("-fx-background-image:url('/xatrock/background.png');");
+     
+              timeLabel.setStyle("-fx-text-fill:black;");
+     dateSeparator.setStyle("-fx-text-fill:black;");
+     eventSeparator.setStyle("-fx-text-fill:black;");
+     dateLabel.setStyle("-fx-text-fill:black;");
+     calenderSeparetor.setStyle("-fx-text-fill:black;");
+     lessonSeparator.setStyle("-fx-text-fill:black;");
+     title.setStyle("-fx-text-fill:black;");
+     nameLabel.setStyle("-fx-text-fill:black;");
+     clock.setImage(new Image("/xatrock/clock.png"));
+     logoutLabel.setImage(new Image("/xatrock/logout.png"));
+     
+      }
+        
+      
+    }
+      @FXML
+       private void aboutXatrockHandler(ActionEvent e) throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+       loader.setLocation(getClass().getResource("AboutXatrockPage1.fxml"));
        Parent ReportManager = loader.load();
        Scene ReportManagerScene = new Scene(ReportManager);
-       Stage window = (Stage)pane.getScene().getWindow();
+       Stage window = (Stage)homePane.getScene().getWindow();
        window.setScene(ReportManagerScene); 
        window.show();
+
+        
     }
     
     

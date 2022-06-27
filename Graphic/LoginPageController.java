@@ -80,22 +80,18 @@ public class LoginPageController implements Initializable {
     @FXML
     private void temp (ActionEvent e) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-                scene = new Scene(root);
-
+        scene = new Scene(root);
         scene = tempButton.getScene();
         root.translateYProperty().set(scene.getHeight());
         pane.getChildren().add(root);
-        Timeline time = new Timeline();
+        Timeline timeLine = new Timeline();
         KeyValue kv = new KeyValue(root.translateYProperty(),0,Interpolator.EASE_IN);
         KeyFrame kf = new KeyFrame(Duration.seconds(1) , kv);
-        time.getKeyFrames().add(kf);
-        time.play();
+        timeLine.getKeyFrames().add(kf);
+        timeLine.play();
         
         
-//        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-//        scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
+
     }
     
 }

@@ -12,6 +12,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -31,6 +35,7 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 
 public class SignupPageController implements Initializable {
@@ -447,11 +452,22 @@ public class SignupPageController implements Initializable {
        insert.setString(10, "12");
        insert.execute();
        
-       Parent root = FXMLLoader.load(getClass().getResource("SubmitPage.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+//       Parent root = FXMLLoader.load(getClass().getResource("SubmitPage.fxml"));
+//        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+      Parent root = FXMLLoader.load(getClass().getResource("SubmitPage.fxml"));
         scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        scene = signupButton.getScene();
+        root.translateYProperty().set(scene.getHeight());
+        signupPage.getChildren().add(root);
+        Timeline timeLine = new Timeline();
+        KeyValue kv = new KeyValue(root.translateYProperty(),0,Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1) , kv);
+        timeLine.getKeyFrames().add(kf);
+        timeLine.play();
+        
        
        
        

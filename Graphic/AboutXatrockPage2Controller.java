@@ -18,29 +18,43 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
-public class AboutXatrockPageController implements Initializable {
 
-    Scene scene;
+public class AboutXatrockPage2Controller implements Initializable {
+
+    Scene scene ;
     Parent parent;
-    @FXML
-    private Button nextButton;
     @FXML
     private Button beforeButton;
     @FXML
-    private AnchorPane aboutXatrockPane1;
+    private AnchorPane aboutXatrockPagePane2;
+    @FXML
+    private Button homePageButton;
 
-  
+ 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    } 
-       @FXML
-        private void switcToAboutXatrockPage2(ActionEvent e) throws IOException{
-            Parent root = FXMLLoader.load(getClass().getResource("AboutXatrockPage2.fxml"));
+    }   
+    @FXML
+    private void switchToAboutXatrockPage1(ActionEvent e) throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("AboutXatrockPage1.fxml"));
         scene = new Scene(root);
-        scene = nextButton.getScene();
+        scene = beforeButton.getScene();
         root.translateYProperty().set(scene.getHeight());
-        aboutXatrockPane1.getChildren().add(root);
+        aboutXatrockPagePane2.getChildren().add(root);
+        Timeline timeLine = new Timeline();
+        KeyValue kv = new KeyValue(root.translateYProperty(),0,Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1) , kv);
+        timeLine.getKeyFrames().add(kf);
+        timeLine.play();
+    }
+    @FXML
+    private void switchToHomePage(ActionEvent e) throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        scene = new Scene(root);
+        scene = homePageButton.getScene();
+        root.translateYProperty().set(scene.getHeight());
+        aboutXatrockPagePane2.getChildren().add(root);
         Timeline timeLine = new Timeline();
         KeyValue kv = new KeyValue(root.translateYProperty(),0,Interpolator.EASE_IN);
         KeyFrame kf = new KeyFrame(Duration.seconds(1) , kv);
@@ -48,19 +62,5 @@ public class AboutXatrockPageController implements Initializable {
         timeLine.play();
         
     }
-        @FXML
-    private void switchToHomePage(ActionEvent e) throws IOException{
-            Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-        scene = new Scene(root);
-        scene = beforeButton.getScene();
-        root.translateYProperty().set(scene.getHeight());
-        aboutXatrockPane1.getChildren().add(root);
-        Timeline timeLine = new Timeline();
-        KeyValue kv = new KeyValue(root.translateYProperty(),0,Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1) , kv);
-        timeLine.getKeyFrames().add(kf);
-        timeLine.play();
-    }
-    
     
 }
