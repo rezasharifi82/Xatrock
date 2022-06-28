@@ -11,48 +11,49 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="957.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xatrock.SubmitPageController">
+<AnchorPane id="AnchorPane" fx:id="submitPane" prefHeight="900.0" prefWidth="1312.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xatrock.SubmitPageController">
     <stylesheets>
         <URL value="@submitpage.css" />
       <URL value="@background.css" />
     </stylesheets>
    <children>
-      <Label layoutX="303.0" layoutY="195.0" text="We need to verify your ">
+      <Label layoutX="464.0" layoutY="297.0" text="We need to verify your ">
          <font>
             <Font size="34.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="406.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="594.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );">
          <image>
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <TextField fx:id="verifyCodeTextField" focusTraversable="false" layoutX="372.0" layoutY="407.0" prefHeight="50.0" prefWidth="214.0" promptText="Type the code" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );" />
-      <Button fx:id="verifyButton" layoutX="424.0" layoutY="474.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="111.0" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: #9c62da;" text="Verify">
+      <TextField fx:id="verifyCodeTextField" focusTraversable="false" layoutX="549.0" layoutY="539.0" prefHeight="50.0" prefWidth="214.0" promptText="Type the code" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );" />
+      <Button fx:id="verifyButton" layoutX="601.0" layoutY="616.0" mnemonicParsing="false" onAction="#verifyButtonHandler" prefHeight="59.0" prefWidth="111.0" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: #9c62da;" text="Verify">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Label layoutX="376.0" layoutY="245.0" text="email address">
+      <Label layoutX="537.0" layoutY="347.0" text="email address">
          <font>
             <Font size="34.0" />
          </font>
       </Label>
-      <Label layoutX="336.0" layoutY="316.0" opacity="0.67" text="Please enter the 6 digit code we sent to :">
+      <Label layoutX="488.0" layoutY="437.0" opacity="0.67" text="Please enter the 6 digit code we sent to :">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label fx:id="notifyLabel" layoutX="372.0" layoutY="365.0" text="Your 6-digit code">
+      <Label fx:id="notifyLabel" layoutX="549.0" layoutY="497.0" text="Your 6-digit code">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="sendCodeAgainHyperLink" layoutX="382.0" layoutY="547.0" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );" text="Send me the code again" textFill="#09d4e5">
+      <Hyperlink fx:id="sendCodeAgainHyperLink" layoutX="559.0" layoutY="690.0" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );" text="Send me the code again" textFill="#09d4e5">
          <font>
             <Font size="17.0" />
          </font>
       </Hyperlink>
+      <Button fx:id="backToSignupPageButton" layoutX="597.0" layoutY="742.0" mnemonicParsing="false" onAction="#backToSignupPageButtonHandler" style="-fx-background-color: #9c62da; -fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 );" text="Back to signup" />
    </children>
    <styleClass>
       <String fx:value="mainFxmlClass" />

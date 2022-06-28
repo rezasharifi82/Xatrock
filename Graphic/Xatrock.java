@@ -18,7 +18,8 @@ public class Xatrock extends Application {
         String cssBg = this.getClass().getResource("background.css").toExternalForm();
         scene.getStylesheets().add(cssBg);
         stage.setScene(scene);
-        stage.setFullScreen(true);
+       
+        
         stage.show();
     }
 

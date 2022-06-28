@@ -70,6 +70,7 @@
             <Font size="17.0" />
          </font>
       </Hyperlink>
+      <Button fx:id="tempButton" layoutX="1034.0" layoutY="478.0" mnemonicParsing="false" onAction="#temp" prefHeight="99.0" prefWidth="180.0" text="home page" />
     </children>
   
 </AnchorPane>

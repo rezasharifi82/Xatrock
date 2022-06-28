@@ -1,12 +1,29 @@
 package xatrock;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -18,12 +35,15 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 
 public class SignupPageController implements Initializable {
  
     Pattern pattern;
     Matcher matcher;
+    Stage stage ;
+    Scene scene;
     @FXML
     private TextField firstNameTextField;
     @FXML
@@ -66,12 +86,12 @@ public class SignupPageController implements Initializable {
     private Label PaswordLevelNotify;
     @FXML
     private AnchorPane signupPage;
-   Stage stage1 ;
+   
   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         passwordLevelProgressBar.setStyle("-fx-accent: green;");
-       stage1.setFullScreen(true);
+      
         
         
     }    
@@ -401,11 +421,73 @@ public class SignupPageController implements Initializable {
            }
         
     }
+    @FXML
    private void signUpButtonHandler(ActionEvent e){
 
+        try {
+            
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/xatrock" , "root" , "");
+        PreparedStatement insert = con.prepareStatement("INSERT INTO member VALUES(?,?,?,?,?,?,?,?,?,?)");
+       Random rand = new Random();
+       Integer member_id = rand.nextInt(999999);
+       String memberId = member_id.toString();
+       insert.setString(1, memberId);
+       insert.setString(2, firstNameTextField.getText());
+       insert.setString(3, lastNameTextField.getText());
+       String position= "0";
+       if(studentRadioButton.isSelected()){
+           position = "0" ;
+           
+       }
+       else if(teacherRadioButton.isSelected()){
+           position = "1";
+       }
+       insert.setString(5, position);
+       insert.setString(4, phonNumberTextField.getText());
+       insert.setString(6, emailAddressTextFiled.getText());
+       insert.setString(7, usernameTextField.getText());
+       insert.setString(8, passwordTextField.getText());
+       insert.setString(9, null);
+       insert.setString(10, "12");
+       insert.execute();
+       
+//       Parent root = FXMLLoader.load(getClass().getResource("SubmitPage.fxml"));
+//        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+      Parent root = FXMLLoader.load(getClass().getResource("SubmitPage.fxml"));
+        scene = new Scene(root);
+        scene = signupButton.getScene();
+        root.translateYProperty().set(scene.getHeight());
+        signupPage.getChildren().add(root);
+        Timeline timeLine = new Timeline();
+        KeyValue kv = new KeyValue(root.translateYProperty(),0,Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1) , kv);
+        timeLine.getKeyFrames().add(kf);
+        timeLine.play();
+        
+       
+       
+       
+       
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
      
-}     
 }
+  
+ }
 
 
     

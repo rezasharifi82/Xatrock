@@ -4,6 +4,10 @@ package xatrock;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +21,9 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 
 public class LoginPageController implements Initializable {
@@ -38,17 +44,18 @@ public class LoginPageController implements Initializable {
     private Label notifyLabel;
     @FXML
     private Hyperlink forgotpasswordHyperLink;
-
+    @FXML
+    private AnchorPane pane;
+    @FXML
+    private Button tempButton;
+  
   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+     
     }    
 
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-       
-    }
     public void  valueHandle(ActionEvent e){
         
     }
@@ -69,6 +76,22 @@ public class LoginPageController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    @FXML
+    private void temp (ActionEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        scene = new Scene(root);
+        scene = tempButton.getScene();
+        root.translateYProperty().set(scene.getHeight());
+        pane.getChildren().add(root);
+        Timeline timeLine = new Timeline();
+        KeyValue kv = new KeyValue(root.translateYProperty(),0,Interpolator.EASE_IN);
+        KeyFrame kf = new KeyFrame(Duration.seconds(1) , kv);
+        timeLine.getKeyFrames().add(kf);
+        timeLine.play();
+        
+        
+
     }
     
 }
