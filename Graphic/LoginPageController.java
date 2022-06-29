@@ -147,7 +147,7 @@ public class LoginPageController implements Initializable {
                  if(robotCheckBox.isSelected()==false){
                      
              UIManager.put("OptionPane.messageFont", new Font("Arial", Font.BOLD, 22));
-            JOptionPane.showMessageDialog(null , " you are robot!!");
+             JOptionPane.showMessageDialog(null , " you are robot!!");
     
                      
                  }

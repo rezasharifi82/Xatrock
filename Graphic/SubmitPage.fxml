@@ -48,7 +48,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="sendCodeAgainHyperLink" layoutX="559.0" layoutY="690.0" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );" text="Send me the code again" textFill="#09d4e5">
+      <Hyperlink fx:id="sendCodeAgainHyperLink" layoutX="559.0" layoutY="690.0" onAction="#sendCodeAgian" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );" text="Send me the code again" textFill="#09d4e5">
          <font>
             <Font size="17.0" />
          </font>

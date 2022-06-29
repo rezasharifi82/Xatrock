@@ -16,7 +16,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="signupPage" prefHeight="900.0" prefWidth="1312.0" styleClass="root" stylesheets="@background.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xatrock.SignupPageController">
    <children>
-      <ImageView fitHeight="115.0" fitWidth="110.0" layoutX="575.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );">
+      <ImageView fitHeight="115.0" fitWidth="110.0" layoutX="576.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );">
          <image>
             <Image url="@logo.png" />
          </image>
@@ -64,5 +64,6 @@
       <Label fx:id="confirmPasswordNotifyLabel" layoutX="744.0" layoutY="718.0" prefHeight="21.0" prefWidth="271.0" text="confirm password controller" />
       <Label fx:id="emailAddressNotifyLabel" layoutX="744.0" layoutY="787.0" prefHeight="21.0" prefWidth="284.0" text="email address controller" />
       <Label fx:id="PaswordLevelNotify" layoutX="282.0" layoutY="722.0" prefHeight="21.0" prefWidth="165.0" text="password level cpntroller" />
+      <Button fx:id="backToLoginPageButton" layoutX="43.0" layoutY="26.0" mnemonicParsing="false" onAction="#backToLoginPageHandler" prefHeight="55.0" prefWidth="120.0" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: #9c62da;" text="Back to log in" />
    </children>
 </AnchorPane>
