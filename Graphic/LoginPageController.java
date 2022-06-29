@@ -1,6 +1,6 @@
-
 package xatrock;
 
+import java.awt.Font;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.DriverManager;
@@ -31,6 +31,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 
 public class LoginPageController implements Initializable {
@@ -65,6 +67,8 @@ public class LoginPageController implements Initializable {
     static String emailAddress ;
     @FXML
     private Label controllerLabel;
+    String input_email = null ;
+    String input_password = null ;
     
   
     @Override
@@ -109,99 +113,87 @@ public class LoginPageController implements Initializable {
     }
     @FXML
     private void LoginButtonHandler(ActionEvent e) throws IOException{
+       /* TODO  int search_email_in_db(input_email){
+         if(input_email is not found ) return -1 ;
+         else if (email is found) return password of this email ;} 
         
-        //TODO check_in_db int(email , password)
-        //return id ;
-        // retrun -1 means email!=password 
-        // if TODO == -1 {
-        // execute first below if statement 
-    //    };
-    
-    // TODO check_in_db boolean (email , password) (make a if statement in body of below else if);
-    //  TODO == false means that input email is for a student ;
-    //  TODO == true means that input email is for a teacher ;
-     if(false){
-           controllerLabel.setDisable(false);
-           loginButtton.setDisable(true);
-       }
+        TODO boolean check_in_db (input_password) {
+         if (search_email_in_db (input_email ) == input_passwoerd return true ;
+         elase return false ;}
+        
+        TODO int check_status_by_db(input_email){
+         if(status of input_email in db = 0 )return 0;
+        else return 1 ;
+        status 0 is define for student and status 1 is define for teacher in signup page ;
+      */
      
-      else if(true && robotCheckBox.isSelected()){ 
-          if(false){
-           controllerLabel.setDisable(true);
-           loginButtton.setDisable(false);
-         emailAddress = emailTextField.getText() ;
-       Parent root = FXMLLoader.load(getClass().getResource("StudentHomePage.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-          }
-          else if(true){
-           controllerLabel.setDisable(true);
-           loginButtton.setDisable(false);
-         emailAddress = emailTextField.getText() ;
-       Parent root = FXMLLoader.load(getClass().getResource("TeacherHomePage.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-          }
-       }
+      int result1=0 ; // == search_email_in_db ;
+      boolean result2 = false; // == check_in_db ;
+      int result3 = 0 ; // check_status_by_db ;
+     if(result1== -1){
            
-    }
+             UIManager.put("OptionPane.messageFont", new Font("Arial", Font.BOLD, 22));
+            JOptionPane.showMessageDialog(null , " your entered email is not found! ");
+       }
+     else{
+         if(result2==false){
+              
+             UIManager.put("OptionPane.messageFont", new Font("Arial", Font.BOLD, 22));
+            JOptionPane.showMessageDialog(null , " your entered password is not correct! ");
+    
+         }
+         else{
+             if(result3==0 ){
+                 if(robotCheckBox.isSelected()==false){
+                     
+             UIManager.put("OptionPane.messageFont", new Font("Arial", Font.BOLD, 22));
+            JOptionPane.showMessageDialog(null , " you are robot!!");
+    
+                     
+                 }
+                 else if(robotCheckBox.isSelected()){
+        Parent root = FXMLLoader.load(getClass().getResource("StudentHomePage.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+                 }
+                 
+             }
+             else if(result3==1){
+                 if(robotCheckBox.isSelected()==false){
+            UIManager.put("OptionPane.messageFont", new Font("Arial", Font.BOLD, 22));
+            JOptionPane.showMessageDialog(null , " you are robot!!");
+                 }
+                 else if(robotCheckBox.isSelected()){
+                  
+        Parent root = FXMLLoader.load(getClass().getResource("TeacherHomePage.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+                     
+                 }
+             }
+         }
+         
+     }
+
+           
+    }  
+    @FXML
+    private void emailHandler(ActionEvent e){
+         input_email = emailTextField.getText();
+       passwordTextField.requestFocus();
+       
+        }
+    
+    
     @FXML
     private void passwordHandler(ActionEvent e){
-             if(passwordTextField.getText().isEmpty()){
-          passwordNotifyLabel.setVisible(true);
-          passwordNotifyLabel.setText(" enter a password ");
-          passwordTextField.setStyle("-fx-border-color: red ;"
-                  + "-fx-border-width:3px;"
-                  + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");      
-          }
-                else if(passwordTextField.getText().length()<8||
-                        passwordTextField.getText().length()>12){
-          passwordNotifyLabel.setVisible(true);
-          passwordNotifyLabel.setText("( enter 8 - 12 charachters )");
-          passwordTextField.setStyle("-fx-border-color: red ;"
-                  + "-fx-border-width: 3px;"
-                  + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");      
-          }
-              
-            else{
-              passwordNotifyLabel.setText("");
-             passwordTextField.setStyle("-fx-border-color: black ;"
-                     + "-fx-border-width: 1px;"
-                     + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");           
-           
-       
-                }
-        }
-    @FXML
-    private void usernameHandler(ActionEvent e){
-             if(usernameTextField.getText().isEmpty()){
-          usernameNotifyLabel.setVisible(true);
-          usernameNotifyLabel.setText(" enter a username ");
-          usernameTextField.setStyle("-fx-border-color: red ;"
-                  + "-fx-border-width:3px;"
-                  + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");      
-          }
-                else if(usernameTextField.getText().length()<5||
-                        usernameTextField.getText().length()>12){
-          usernameNotifyLabel.setVisible(true);
-          usernameNotifyLabel.setText("( enter 5 - 12 charachters )");
-          usernameTextField.setStyle("-fx-border-color: red ;"
-                  + "-fx-border-width: 3px;"
-                  + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");      
-          }
-              
-            else{
-              usernameNotifyLabel.setText("");
-             usernameTextField.setStyle("-fx-border-color: black ;"
-                     + "-fx-border-width: 1px;"
-                     + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");
-         passwordTextField.requestFocus();
+         input_password = passwordTextField.getText();
+    }
       
-                }
-        }
+ 
     
 }
