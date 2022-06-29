@@ -44,10 +44,16 @@ public class SignupPageController implements Initializable {
     Matcher matcher;
     Stage stage ;
     Scene scene;
-    static String primaryId;
-    static String fullName ;
-    static int verifyCode ;
-    
+     String primaryId;
+     String fullName ;
+     int verifyCode ;
+     String firstName ;
+     String lastName ;
+     long phoneNumber ;
+     int status ;
+     String userName ;
+     int password ;
+     String email ;
     @FXML
     private TextField firstNameTextField;
     @FXML
@@ -133,6 +139,7 @@ public class SignupPageController implements Initializable {
                      + "-fx-border-width: 1px;"
                      + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");
               lastNameTextField.requestFocus();
+              firstName = firstNameTextField.getText();
                  if(firstNameNotifyLabel.getText().equals("")&&
                          lastNameNotifyLabel.getText().equals("")&&
                          phonNumberNotifyLabel.getText().equals("")&&
@@ -169,6 +176,7 @@ public class SignupPageController implements Initializable {
                      + "-fx-border-width: 1px;"
                      + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");
               birthDateDatePicker.requestFocus();
+             lastName = lastNameTextField.getText();
               if(firstNameNotifyLabel.getText().equals("")&&
                          lastNameNotifyLabel.getText().equals("")&&
                          phonNumberNotifyLabel.getText().equals("")&&
@@ -230,6 +238,7 @@ public class SignupPageController implements Initializable {
                      + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");
 
              usernameTextField.requestFocus();
+             phoneNumber = Long.parseLong(phonNumberTextField.getText());
              if(firstNameNotifyLabel.getText().equals("")&&
                          lastNameNotifyLabel.getText().equals("")&&
                          phonNumberNotifyLabel.getText().equals("")&&
@@ -246,9 +255,11 @@ public class SignupPageController implements Initializable {
         private void studentRadioButton(ActionEvent e ){
             if(studentRadioButton.isSelected()){
                 teacherRadioButton.setSelected(false);
+                status = 0;
             }
              if(teacherRadioButton.isSelected()){
                 studentRadioButton.setSelected(false);
+                status = 1;
             }
              if(firstNameNotifyLabel.getText().equals("")&&
                          lastNameNotifyLabel.getText().equals("")&&
@@ -265,9 +276,12 @@ public class SignupPageController implements Initializable {
         private void teacherRadioButton(ActionEvent e ){
               if(teacherRadioButton.isSelected()){
                 studentRadioButton.setSelected(false);
+                status = 1 ;
             }
             if(studentRadioButton.isSelected()){
                 teacherRadioButton.setSelected(false);
+                status = 0 ;
+                
             }  
             if(firstNameNotifyLabel.getText().equals("")&&
                          lastNameNotifyLabel.getText().equals("")&&
@@ -304,6 +318,7 @@ public class SignupPageController implements Initializable {
                      + "-fx-border-width: 1px;"
                      + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");
          passwordTextField.requestFocus();
+         userName = usernameTextField.getText();
          if(firstNameNotifyLabel.getText().equals("")&&
                          lastNameNotifyLabel.getText().equals("")&&
                          phonNumberNotifyLabel.getText().equals("")&&
@@ -339,6 +354,7 @@ public class SignupPageController implements Initializable {
                      + "-fx-border-width: 1px;"
                      + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");           
            confirmPasswordTextField.requestFocus();
+          password = Integer.parseInt(passwordTextField.getText());
            if(firstNameNotifyLabel.getText().equals("")&&
                          lastNameNotifyLabel.getText().equals("")&&
                          phonNumberNotifyLabel.getText().equals("")&&
@@ -413,7 +429,8 @@ public class SignupPageController implements Initializable {
              emailAddressTextFiled.setStyle("-fx-border-color: black ;"
                      + "-fx-border-width: 1px;"
                      + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");
-          if(firstNameNotifyLabel.getText().equals("")&&
+        email = emailAddressTextFiled.getText();
+             if(firstNameNotifyLabel.getText().equals("")&&
                          lastNameNotifyLabel.getText().equals("")&&
                          phonNumberNotifyLabel.getText().equals("")&&
                          usernameNotifyLabel.getText().equals("")&&
@@ -426,73 +443,70 @@ public class SignupPageController implements Initializable {
         
     }
     @FXML
-   private void signUpButtonHandler(ActionEvent e){
-
-        try {
-            
-          Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-          java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/xatrock" , "root" , "");
-       PreparedStatement insert = con.prepareStatement("INSERT INTO member VALUES(?,?,?,?,?,?,?,?,?,?)");
-       Random rand = new Random();
-       Integer member_id = rand.nextInt(999999);
+   private void signUpButtonHandler(ActionEvent e) throws IOException{
+       // TODO void save_in_db (firstName , lastName , phoneNumber , status , userName , password , email ){
+       // save the parameters in the database ;}
+       // TODO int creat_6digit_random_number(){
+       // return 6 digit number ;}
+       // int *result1 = creat_6digit_random_number();
+       // TODO creat an object from email class ;
+       // TODO call the constructor of email class (email , "verify code" , result1);
        
-       String memberId = member_id.toString();
-       primaryId = memberId ;
-       fullName = firstNameTextField.getText()+" "+lastNameTextField.getText();
-       insert.setString(1, memberId);
-       insert.setString(2, firstNameTextField.getText());
-       insert.setString(3, lastNameTextField.getText());
-       String position= "0";
-       if(studentRadioButton.isSelected()){
-           position = "0" ;
-           
-       }
-       else if(teacherRadioButton.isSelected()){
-           position = "1";
-       }
-       insert.setString(5, position);
-       insert.setString(4, phonNumberTextField.getText());
-       insert.setString(6, emailAddressTextFiled.getText());
-       insert.setString(7, usernameTextField.getText());
-       insert.setString(8, passwordTextField.getText());
-       insert.setString(9, null);
-       insert.setString(10, "12");
-       insert.execute();
        
-//       Parent root = FXMLLoader.load(getClass().getResource("SubmitPage.fxml"));
-//        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-//        scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
-      Parent root = FXMLLoader.load(getClass().getResource("SubmitPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SubmitPage.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        scene = signupButton.getScene();
-        root.translateYProperty().set(scene.getHeight());
-        signupPage.getChildren().add(root);
-        Timeline timeLine = new Timeline();
-        KeyValue kv = new KeyValue(root.translateYProperty(),0,Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1) , kv);
-        timeLine.getKeyFrames().add(kf);
-        timeLine.play();
-        // TODO execute email api to send verify code ;
-        // make a 6 digit random number and save it in a static integer ; 
-        // thats random number name is verifyCode ;
+        stage.setScene(scene);
+        stage.show();
+   
+        
+ 
         
        
-       
-       
-       
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+//        try {
+//            
+//          Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+//          java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/xatrock" , "root" , "");
+//       PreparedStatement insert = con.prepareStatement("INSERT INTO member VALUES(?,?,?,?,?,?,?,?,?,?)");
+//       Random rand = new Random();
+//       Integer member_id = rand.nextInt(999999);
+//       
+//       String memberId = member_id.toString();
+//       primaryId = memberId ;
+//       fullName = firstNameTextField.getText()+" "+lastNameTextField.getText();
+//       insert.setString(1, memberId);
+//       insert.setString(2, firstNameTextField.getText());
+//       insert.setString(3, lastNameTextField.getText());
+//       String position= "0";
+//       if(studentRadioButton.isSelected()){
+//           position = "0" ;
+//           
+//       }
+//       else if(teacherRadioButton.isSelected()){
+//           position = "1";
+//       }
+//       insert.setString(5, position);
+//       insert.setString(4, phonNumberTextField.getText());
+//       insert.setString(6, emailAddressTextFiled.getText());
+//       insert.setString(7, usernameTextField.getText());
+//       insert.setString(8, passwordTextField.getText());
+//       insert.setString(9, null);
+//       insert.setString(10, "12");
+//       insert.execute();
+            
+//       
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IOException ex) {
+//            Logger.getLogger(SignupPageController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
        
      
 }
