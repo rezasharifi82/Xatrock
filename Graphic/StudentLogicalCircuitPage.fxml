@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1312.0" stylesheets="@background.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xatrock.StudentLogicalCircuitPageController">
+   <children>
+      <ImageView fitHeight="171.0" fitWidth="337.0" layoutX="539.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logicalCircuit.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="942.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@grade.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="282.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@exam.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="658.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@homeWork.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="gradeButton" layoutX="935.0" layoutY="445.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="163.0" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 ); -fx-background-color: #B5F0FD;" text="Grade" />
+      <Button fx:id="homeWorkButton" layoutX="653.0" layoutY="771.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="163.0" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 ); -fx-background-color: #B5F0FD;" text="Home work" />
+      <Button fx:id="examButton" layoutX="318.0" layoutY="445.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="163.0" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 ); -fx-background-color: #B5F0FD;" text="Exam" />
+      <Button fx:id="backToHomePageButton" layoutX="1150.0" layoutY="14.0" mnemonicParsing="false" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: yellow;" text="Back to home page" />
+   </children>
+</AnchorPane>

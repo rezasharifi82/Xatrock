@@ -26,6 +26,9 @@ public class Xatrock extends Application {
     
     public static void main(String[] args) {
         launch(args);
+        
+//        Email.send("salehmhosseini2002@gmail.com" , "test" , "hi");
+    
     }
     
 }

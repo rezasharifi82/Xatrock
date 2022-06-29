@@ -44,6 +44,10 @@ public class SignupPageController implements Initializable {
     Matcher matcher;
     Stage stage ;
     Scene scene;
+    static String primaryId;
+    static String fullName ;
+    static int verifyCode ;
+    
     @FXML
     private TextField firstNameTextField;
     @FXML
@@ -426,12 +430,15 @@ public class SignupPageController implements Initializable {
 
         try {
             
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/xatrock" , "root" , "");
-        PreparedStatement insert = con.prepareStatement("INSERT INTO member VALUES(?,?,?,?,?,?,?,?,?,?)");
+          Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+          java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/xatrock" , "root" , "");
+       PreparedStatement insert = con.prepareStatement("INSERT INTO member VALUES(?,?,?,?,?,?,?,?,?,?)");
        Random rand = new Random();
        Integer member_id = rand.nextInt(999999);
+       
        String memberId = member_id.toString();
+       primaryId = memberId ;
+       fullName = firstNameTextField.getText()+" "+lastNameTextField.getText();
        insert.setString(1, memberId);
        insert.setString(2, firstNameTextField.getText());
        insert.setString(3, lastNameTextField.getText());
@@ -467,6 +474,9 @@ public class SignupPageController implements Initializable {
         KeyFrame kf = new KeyFrame(Duration.seconds(1) , kv);
         timeLine.getKeyFrames().add(kf);
         timeLine.play();
+        // TODO execute email api to send verify code ;
+        // make a 6 digit random number and save it in a static integer ; 
+        // thats random number name is verifyCode ;
         
        
        

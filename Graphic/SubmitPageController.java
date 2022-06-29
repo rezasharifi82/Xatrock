@@ -44,13 +44,46 @@ public class SubmitPageController implements Initializable {
     private Button backToSignupPageButton;
     @FXML
     private AnchorPane submitPane;
+    @FXML
+    private Label controller;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
     } 
+    private void  verifyCodeTextField(ActionEvent e){
+        if(verifyCodeTextField.getText().length()!=6){
+            controller.setVisible(true);
+            controller.setText(" enter correct value ");
+          verifyCodeTextField.setStyle("-fx-border-color: red ;"
+                  + "-fx-border-width:3px;"
+                + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");         
+        }
+        //TODO compare verifyCode with verifyCodeTextField.getText() in the next if statement;
+        
+        else if(false){
+                   controller.setVisible(true);
+            controller.setText(" enter correct value ");
+          verifyCodeTextField.setStyle("-fx-border-color: red ;"
+                  + "-fx-border-width:3px;"
+                + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");         
+     
+        }
+        else{
+                     controller.setText("");
+             verifyCodeTextField.setStyle("-fx-border-color: black ;"
+                     + "-fx-border-width: 1px;"
+                     + " -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,1 );");           
+      if(controller.getText().equals("")){
+          verifyButton.setDisable(false);
+      }
+       
+        }
+        
+    }
     @FXML
     private void verifyButtonHandler(ActionEvent e) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        
+        Parent root = FXMLLoader.load(getClass().getResource("SuccessfullySignupPage.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -58,21 +91,12 @@ public class SubmitPageController implements Initializable {
     }
      @FXML
     private void backToSignupPageButtonHandler(ActionEvent e) throws IOException{
-//        Parent root = FXMLLoader.load(getClass().getResource("SignupPage.fxml"));
-//        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-//        scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
-  Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SignupPage.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        scene = verifyButton.getScene();
-        root.translateYProperty().set(scene.getHeight());
-        submitPane.getChildren().add(root);
-        Timeline timeLine = new Timeline();
-        KeyValue kv = new KeyValue(root.translateYProperty(),0,Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1) , kv);
-        timeLine.getKeyFrames().add(kf);
-        timeLine.play();
+        stage.setScene(scene);
+        stage.show();
+
         
     }
     
