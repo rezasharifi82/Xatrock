@@ -48,6 +48,7 @@ public class SubmitPageController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
     } 
+    @FXML
     private void  verifyCodeTextFieldHandler(ActionEvent e) throws IOException{
         if(verifyCodeTextField.getText().length()!=6){
             controller.setVisible(true);

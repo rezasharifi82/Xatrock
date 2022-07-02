@@ -27,7 +27,7 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <TextField fx:id="verifyCodeTextField" focusTraversable="false" layoutX="549.0" layoutY="539.0" prefHeight="50.0" prefWidth="214.0" promptText="Type the code" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );" />
+      <TextField fx:id="verifyCodeTextField" focusTraversable="false" layoutX="549.0" layoutY="539.0" onAction="#verifyCodeTextFieldHandler" prefHeight="50.0" prefWidth="214.0" promptText="Type the code" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );" />
       <Button fx:id="verifyButton" disable="true" layoutX="601.0" layoutY="616.0" mnemonicParsing="false" onAction="#verifyButtonHandler" prefHeight="59.0" prefWidth="111.0" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: #9c62da;" text="Verify">
          <font>
             <Font size="24.0" />
