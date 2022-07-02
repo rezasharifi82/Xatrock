@@ -442,6 +442,7 @@ public class SignupPageController implements Initializable {
            }
         
     }
+    
     @FXML
    private void signUpButtonHandler(ActionEvent e) throws IOException{
        // TODO void save_in_db (firstName , lastName , phoneNumber , status , userName , password , email ){

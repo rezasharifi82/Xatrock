@@ -37,6 +37,7 @@ import javax.swing.UIManager;
 
 public class LoginPageController implements Initializable {
 
+    
     private Stage stage ;
     private Scene scene ;
     @FXML
@@ -99,7 +100,7 @@ public class LoginPageController implements Initializable {
     }
     @FXML
     private void temp (ActionEvent e) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SubmitPage.fxml"));
         scene = new Scene(root);
         scene = tempButton.getScene();
         root.translateYProperty().set(scene.getHeight());
