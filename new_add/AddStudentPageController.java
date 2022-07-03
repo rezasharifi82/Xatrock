@@ -48,10 +48,10 @@ public class AddStudentPageController implements Initializable {
     // return the mathematic lesson members by array list format;}
     // else if(comboValue.equals("4")){
     // return the logical circuit lesson members by array list format ;
-    // hint : comboValue.equals("1") : the programming item selected ; 
-    // hint : comboValue.equals("2") : the physic item selected ;
-    // hint : comboValue.equals("3") : the mathematic item selected ;
-    // hint : comboValue.equals("4") : the logical circuit item selected ;}
+    // hint : comboValue1.equals("1") : the programming item selected ; 
+    // hint : comboValue1.equals("2") : the physic item selected ;
+    // hint : comboValue1.equals("3") : the mathematic item selected ;
+    // hint : comboValue1.equals("4") : the logical circuit item selected ;}
     
     //TODO  ArrayList<String> list = list_of_members();
     
@@ -90,7 +90,7 @@ public class AddStudentPageController implements Initializable {
     @FXML
     private void chooseStudentComboBoxHandler(ActionEvent e){
         
-        
+        comboValue2 = chooseStudentComboBox.getValue();
     }
 
      @FXML
