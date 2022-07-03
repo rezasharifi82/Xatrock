@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1100.0" stylesheets="@background.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xatrock.MakeExamPageController">
+   <children>
+      <ImageView fitHeight="196.0" fitWidth="188.0" layoutX="474.0" layoutY="-32.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@makeExam.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="questionTextFiled" focusTraversable="false" layoutX="137.0" layoutY="180.0" onAction="#questionTextFieldHandler" prefHeight="31.0" prefWidth="854.0" />
+      <TextField fx:id="option4TextField" focusTraversable="false" layoutX="137.0" layoutY="532.0" onAction="#option4TextFieldHandler" prefHeight="31.0" prefWidth="854.0" />
+      <TextField fx:id="option3TextField" focusTraversable="false" layoutX="137.0" layoutY="442.0" onAction="#option3TextFieldHandler" prefHeight="31.0" prefWidth="854.0" />
+      <TextField fx:id="option2TextField" focusTraversable="false" layoutX="137.0" layoutY="361.0" onAction="#option2TextFieldHandler" prefHeight="31.0" prefWidth="854.0" />
+      <TextField fx:id="option1TextField" focusTraversable="false" layoutX="137.0" layoutY="277.0" onAction="#option1TextFieldHandler" prefHeight="31.0" prefWidth="854.0" />
+      <RadioButton fx:id="option1RadioButton" contentDisplay="CENTER" focusTraversable="false" layoutX="524.0" layoutY="317.0" mnemonicParsing="false" onAction="#option1RadioButtonHandler" />
+      <RadioButton fx:id="option2RadioButton" contentDisplay="CENTER" focusTraversable="false" layoutX="524.0" layoutY="408.0" mnemonicParsing="false" onAction="#option2RadioButtonHandler" />
+      <RadioButton fx:id="option3RadioButton" contentDisplay="CENTER" focusTraversable="false" layoutX="524.0" layoutY="494.0" mnemonicParsing="false" onAction="#option3RadioButtonHandler" />
+      <RadioButton fx:id="option4RadioButton" contentDisplay="CENTER" focusTraversable="false" layoutX="523.0" layoutY="574.0" mnemonicParsing="false" onAction="#option4RadioButtonHandler" />
+      <Button fx:id="fixButton" focusTraversable="false" layoutX="632.0" layoutY="636.0" mnemonicParsing="false" onAction="#fixButtonHandler" prefHeight="31.0" prefWidth="110.0" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: #9c62da;" text="fix">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="nextButton" disable="true" focusTraversable="false" layoutX="499.0" layoutY="636.0" mnemonicParsing="false" onAction="#nextButtonHandler" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: #9c62da;" text="next question">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="finishButton" disable="true" focusTraversable="false" layoutX="361.0" layoutY="636.0" mnemonicParsing="false" onAction="#finishButtonHandler" prefHeight="31.0" prefWidth="110.0" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: #9c62da;" text="finish">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="backToLessonPageButton" focusTraversable="false" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" onAction="#backToLessonPageButtonHandler" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: yellow;" text="Back to lesson page" />
+      <Button fx:id="backToHomePageButton" focusTraversable="false" layoutX="922.0" layoutY="31.0" mnemonicParsing="false" onAction="#backToHomePageButtonHandler" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: yellow;" text="Back to home page" />
+      <Label fx:id="questionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="123.0" layoutY="221.0" prefHeight="21.0" prefWidth="839.0" text="Question Text" />
+      <ComboBox fx:id="lessonComboBox" focusTraversable="false" layoutX="697.0" layoutY="125.0" onAction="#lessonComboBoxHandler" prefWidth="150.0" promptText="Lesson" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: yellow;" />
+      <ComboBox fx:id="examNumberComboBox" focusTraversable="false" layoutX="279.0" layoutY="125.0" onAction="#examNumberComboBoxHandler" prefWidth="150.0" promptText="Exam number" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: yellow;" />
+   </children>
+</AnchorPane>
