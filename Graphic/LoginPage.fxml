@@ -15,12 +15,12 @@
 
 <AnchorPane id="AnchorPane" fx:id="pane" prefHeight="700.0" prefWidth="1100.0" style="-fx-border-color: blue;" styleClass="root" stylesheets="@background.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xatrock.LoginPageController">
     <children>
-      <ImageView fitHeight="91.0" fitWidth="66.0" layoutX="537.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );">
+      <ImageView fitHeight="91.0" fitWidth="66.0" layoutX="515.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );">
          <image>
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="496.0" layoutY="74.0" prefHeight="91.0" prefWidth="194.0" text="Log in">
+      <Label fx:id="loginLabel" layoutX="483.0" layoutY="67.0" prefHeight="91.0" prefWidth="194.0" text="Log in">
          <font>
             <Font name="System Bold" size="45.0" />
          </font>
@@ -33,53 +33,71 @@
             </RadialGradient>
          </textFill>
       </Label>
-      <Label layoutX="524.0" layoutY="156.0" prefHeight="34.0" prefWidth="136.0" text="Email">
+      <Label layoutX="512.0" layoutY="147.0" prefHeight="34.0" prefWidth="136.0" text="Email">
          <font>
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <Label layoutX="517.0" layoutY="248.0" text="Password">
+      <Label layoutX="504.0" layoutY="221.0" text="Password">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
-      <Label layoutX="443.0" layoutY="594.0" text="Dont have an acccount?">
+      <Label layoutX="407.0" layoutY="623.0" text="Dont have an acccount?">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <TextField fx:id="emailTextField" focusTraversable="false" layoutX="429.0" layoutY="201.0" onAction="#emailHandler" prefHeight="34.0" prefWidth="279.0" promptText="📧 email" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.8) , 25,0,0,0 );" />
-      <PasswordField fx:id="passwordTextField" focusTraversable="false" layoutX="429.0" layoutY="289.0" onAction="#passwordHandler" prefHeight="34.0" prefWidth="279.0" promptText="🔑 password" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.8) , 25,0,0,0 );" />
-      <Button fx:id="loginButtton" layoutX="462.0" layoutY="374.0" mnemonicParsing="false" onAction="#LoginButtonHandler" prefHeight="42.0" prefWidth="214.0" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.3) , 20,0,0,0 ); -fx-background-color: #9c62da;" text="LOGIN" />
-      <Hyperlink fx:id="signupHyperLink" layoutX="621.0" layoutY="590.0" onAction="#switchToSignupPage" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );" text="Sing up here" textFill="#09d4e5">
+      <TextField fx:id="emailTextField" focusTraversable="false" layoutX="416.0" layoutY="179.0" onAction="#emailHandler" prefHeight="34.0" prefWidth="279.0" promptText="📧 email" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.8) , 25,0,0,0 );" />
+      <PasswordField fx:id="passwordTextField" focusTraversable="false" layoutX="416.0" layoutY="267.0" onAction="#passwordHandler" prefHeight="34.0" prefWidth="279.0" promptText="🔑 password" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.8) , 25,0,0,0 );" />
+      <Button fx:id="loginButtton" layoutX="449.0" layoutY="343.0" mnemonicParsing="false" onAction="#LoginButtonHandler" prefHeight="42.0" prefWidth="214.0" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.3) , 20,0,0,0 ); -fx-background-color: #9c62da;" text="LOGIN" />
+      <Hyperlink fx:id="signupHyperLink" layoutX="585.0" layoutY="619.0" onAction="#switchToSignupPage" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );" text="Sing up here" textFill="#09d4e5">
          <font>
             <Font size="17.0" />
          </font>
       </Hyperlink>
-      <Label layoutX="513.0" layoutY="444.0" text="Im Not a robot">
+      <Label layoutX="495.0" layoutY="396.0" text="Im Not a robot">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <CheckBox fx:id="robotCheckBox" layoutX="652.0" layoutY="448.0" mnemonicParsing="false" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 15,0,0,1 );" />
-      <Label fx:id="notifyLabel" layoutX="386.0" layoutY="353.0" prefHeight="21.0" prefWidth="380.0" text="Please enter the correct username or password" textFill="#720000" visible="false">
+      <CheckBox fx:id="robotCheckBox" layoutX="634.0" layoutY="400.0" mnemonicParsing="false" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 15,0,0,1 );" />
+      <Label fx:id="notifyLabel" layoutX="373.0" layoutY="353.0" prefHeight="21.0" prefWidth="380.0" text="Please enter the correct username or password" textFill="#720000" visible="false">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Label>
-      <Hyperlink fx:id="forgotpasswordHyperLink" layoutX="559.0" layoutY="336.0" onAction="#switchToForgetPasswordPage" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );" text="Forgot Password?" textFill="#09d4e5">
+      <Hyperlink fx:id="forgotpasswordHyperLink" layoutX="546.0" layoutY="309.0" onAction="#switchToForgetPasswordPage" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );" text="Forgot Password?" textFill="#09d4e5">
          <font>
             <Font size="17.0" />
          </font>
       </Hyperlink>
       <Button fx:id="tempButton" layoutX="45.0" layoutY="360.0" mnemonicParsing="false" onAction="#temp" prefHeight="99.0" prefWidth="180.0" text="home page" visible="false" />
-      <Label fx:id="controllerLabel" layoutX="455.0" layoutY="645.0" text="email or password is not correcr" visible="false">
+      <Label fx:id="controllerLabel" layoutX="436.0" layoutY="653.0" text="email or password is not correcr" visible="false">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Label>
-      <Label layoutX="463.0" layoutY="482.0" text="KAPCHA">
+      <Label fx:id="captchaLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="422.0" layoutY="442.0" style="-fx-border-color: yellow; -fx-border-width: 3px;" text="KAPTCHA">
          <font>
             <Font size="60.0" />
          </font>
       </Label>
+      <ImageView fitHeight="34.0" fitWidth="40.0" layoutX="717.0" layoutY="571.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@return.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="captchaTextField" layoutX="431.0" layoutY="570.0" onAction="#captchaTextFieldHandler" promptText="captcha code" style="-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );" />
+      <Button fx:id="verifyButton" layoutX="633.0" layoutY="570.0" mnemonicParsing="false" onAction="#verifyButtonHandler" style="-fx-background-color: #9c62da; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );" text="Verify" />
+      <Button fx:id="returnButton" layoutX="711.0" layoutY="570.0" mnemonicParsing="false" onAction="#returnButtonHandler" opacity="0.0" prefHeight="34.0" prefWidth="46.0" text="return" />
+      <ImageView fx:id="opacityImage" fitHeight="174.0" fitWidth="241.0" layoutX="70.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@opacity.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="opacityImage1" fitHeight="174.0" fitWidth="241.0" layoutX="811.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@opacity.png" />
+         </image>
+      </ImageView>
     </children>
   
 </AnchorPane>
