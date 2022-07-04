@@ -196,7 +196,7 @@ public class StudentHomePageController implements Initializable {
        }
        else{
        FXMLLoader loader = new FXMLLoader();
-       loader.setLocation(getClass().getResource("LoginPage.fxml"));
+       loader.setLocation(getClass().getResource("StudentMathematicPage.fxml"));
        Parent ReportManager = loader.load();
        Scene ReportManagerScene = new Scene(ReportManager);
        Stage window = (Stage)pane.getScene().getWindow();
@@ -212,7 +212,7 @@ public class StudentHomePageController implements Initializable {
        }
         else{
        FXMLLoader loader = new FXMLLoader();
-       loader.setLocation(getClass().getResource("LoginPage.fxml"));
+       loader.setLocation(getClass().getResource("StudentPhysicPage.fxml"));
        Parent ReportManager = loader.load();
        Scene ReportManagerScene = new Scene(ReportManager);
        Stage window = (Stage)pane.getScene().getWindow();
@@ -228,7 +228,7 @@ public class StudentHomePageController implements Initializable {
        }
         else{
        FXMLLoader loader = new FXMLLoader();
-       loader.setLocation(getClass().getResource("LoginPage.fxml"));
+       loader.setLocation(getClass().getResource("StudentProgrammingPage.fxml"));
        Parent ReportManager = loader.load();
        Scene ReportManagerScene = new Scene(ReportManager);
        Stage window = (Stage)pane.getScene().getWindow();
@@ -245,7 +245,7 @@ public class StudentHomePageController implements Initializable {
        }
         else{
        FXMLLoader loader = new FXMLLoader();
-       loader.setLocation(getClass().getResource("LoginPage.fxml"));
+       loader.setLocation(getClass().getResource("StudentLogicalCircuitPage.fxml"));
        Parent ReportManager = loader.load();
        Scene ReportManagerScene = new Scene(ReportManager);
        Stage window = (Stage)pane.getScene().getWindow();
