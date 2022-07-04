@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -18,6 +19,8 @@ public class Xatrock extends Application {
         String cssBg = this.getClass().getResource("background.css").toExternalForm();
         scene.getStylesheets().add(cssBg);
         stage.setScene(scene);
+        stage.getIcons().add(new Image("/xatrock/logo.png"));
+        stage.setTitle("Xatrock");
        
         
         stage.show();
