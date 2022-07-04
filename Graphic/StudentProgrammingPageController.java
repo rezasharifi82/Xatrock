@@ -1,27 +1,63 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package xatrock;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author HUAWEI
- */
+
 public class StudentProgrammingPageController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    Stage stage ;
+    Scene scene ;
+    @FXML
+    private Button gradeButton;
+    @FXML
+    private Button homeWorkButton;
+    @FXML
+    private Button examButton;
+    @FXML
+    private Button backToHomePageButton;
+    @FXML
+    private Button messengertButton;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       
     }    
+        @FXML
+        private void messengerButtonHandler(ActionEvent e) throws IOException{
+        //TODO set the ,messenger file name in the below String that i set the messengerPage;
+       Parent root = FXMLLoader.load(getClass().getResource("MessengerPage.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+         @FXML
+        private void backToHomePageHandler(ActionEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("StudentHomePage.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        }
+        @FXML
+        private void switchToExamPage(ActionEvent e) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("StudentProgrammingExamPage.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+            
+        }
     
 }

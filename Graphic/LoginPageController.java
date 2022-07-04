@@ -41,10 +41,6 @@ public class LoginPageController implements Initializable {
     private Stage stage ;
     private Scene scene ;
     @FXML
-    private TextField usernameTextField;
-    @FXML
-    private PasswordField passwordPasswordField;
-    @FXML
     private Button loginButtton;
     @FXML
     private Hyperlink signupHyperLink;
@@ -100,7 +96,7 @@ public class LoginPageController implements Initializable {
     }
     @FXML
     private void temp (ActionEvent e) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("SubmitPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MakeExamPage.fxml"));
         scene = new Scene(root);
         scene = tempButton.getScene();
         root.translateYProperty().set(scene.getHeight());
