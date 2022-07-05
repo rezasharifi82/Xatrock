@@ -1,0 +1,158 @@
+
+package xatrock;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+
+
+public class StudentEditeProfilePageController implements Initializable {
+
+    Stage stage; 
+    Scene scene ;
+    @FXML
+    private TextField firstNameTextField;
+    @FXML
+    private TextField lastNameTextField;
+    @FXML
+    private DatePicker birthDateDatePicker;
+    @FXML
+    private TextField usernameTextField;
+    @FXML
+    private PasswordField passwordTextField;
+    @FXML
+    private PasswordField confirmPasswordTextField;
+    @FXML
+    private TextField emailAddressTextFiled;
+    @FXML
+    private ProgressBar passwordLevelProgressBar;
+    @FXML
+    private TextField phonNumberTextField;
+    @FXML
+    private RadioButton studentRadioButton;
+    @FXML
+    private RadioButton teacherRadioButton;
+    @FXML
+    private Label lastNameNotifyLabel;
+    @FXML
+    private Label firstNameNotifyLabel;
+    @FXML
+    private Label phonNumberNotifyLabel;
+    @FXML
+    private Label usernameNotifyLabel;
+    @FXML
+    private Label passwordNotifyLabel;
+    @FXML
+    private Label confirmPasswordNotifyLabel;
+    @FXML
+    private Label emailAddressNotifyLabel;
+    @FXML
+    private Label PaswordLevelNotify;
+    @FXML
+    private Button finishButton;
+    @FXML
+    private Button backToHomePageButton;
+
+   StudentHomePageController sth = new StudentHomePageController();
+  
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+      
+    }    
+
+    @FXML
+    private void hadle(InputMethodEvent event) {
+    }
+
+    @FXML
+    private void hadle(MouseEvent event) {
+    }
+
+    @FXML
+    private void firstNameHandler(ActionEvent event) {
+                firstNameTextField.setText(""/*TODO sth.set_information().getFirstName()*/);
+
+       
+    }
+
+    @FXML
+    private void lastNameHandler(ActionEvent event) {
+                  lastNameTextField.setText(""/*TODO sth.set_information().getLastName()*/);
+
+    }
+
+
+    @FXML
+    private void usernameHandler(ActionEvent event) {
+                  usernameTextField.setText(""/*TODO sth.set_information().getusername()*/);
+
+    }
+
+    @FXML
+    private void passwordHandler(ActionEvent event) {
+        passwordTextField.setText("");
+    }
+
+    @FXML
+    private void confirmPasswordHandler(ActionEvent event) {
+        confirmPasswordTextField.setText("");
+    }
+
+    @FXML
+    private void emailHandler(ActionEvent event) {
+                  emailAddressTextFiled.setText(""/*TODO sth.set_information().getEmail()*/);
+
+    }
+
+    @FXML
+    private void finishButtonHandler(ActionEvent event) throws IOException {
+          //TODO update the information in db .
+       // TODO void save_in_db (firstName , lastName , phoneNumber , status , userName , password , email ){
+       // save the parameters in the database ;}
+       // TODO int creat_6digit_random_number(){
+       // return 6 digit number ;}
+       // int *result1 = creat_6digit_random_number();
+       // TODO creat an object from email class ;
+       // TODO call the constructor of email class (email , "verify code" , result1);
+       
+       
+        Parent root = FXMLLoader.load(getClass().getResource("SubmitPage.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void phonNumberHandler(ActionEvent event) {
+             phonNumberTextField.setText(""/*TODO sth.set_information().getPhoneNumber()*/);
+
+    }
+
+    @FXML
+    private void backToHomePageHandler(ActionEvent event) throws IOException {
+           Parent root = FXMLLoader.load(getClass().getResource("StudentHomePage.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+}
