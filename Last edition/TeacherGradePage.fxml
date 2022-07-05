@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1100.0" stylesheets="@background.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xatrock.TeacherGradePageController">
+   <children>
+      <Separator layoutX="236.0" layoutY="215.0" prefHeight="10.0" prefWidth="697.0" />
+      <Label layoutX="495.0" layoutY="135.0" text="Grades">
+         <font>
+            <Font name="Segoe Print Bold" size="47.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="501.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@grade.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3fff212b" height="393.0" layoutX="43.0" layoutY="252.0" stroke="BLACK" strokeType="INSIDE" width="1046.0" />
+      <Label layoutX="803.0" layoutY="267.0" text="Physics">
+         <font>
+            <Font name="Segoe Print Bold" size="30.0" />
+         </font>
+      </Label>
+      <Separator layoutX="558.0" layoutY="252.0" orientation="VERTICAL" prefHeight="393.0" prefWidth="12.0" />
+      <Separator layoutX="43.0" layoutY="429.0" prefHeight="3.0" prefWidth="1046.0" />
+      <Label layoutX="207.0" layoutY="267.0" text="Programming">
+         <font>
+            <Font name="Segoe Print Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="207.0" layoutY="456.0" text="Logical circuit">
+         <font>
+            <Font name="Segoe Print Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="766.0" layoutY="466.0" text="Mathematic">
+         <font>
+            <Font name="Segoe Print Bold" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="54.0" fitWidth="57.0" layoutX="922.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@excel.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="54.0" fitWidth="57.0" layoutX="922.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@excel.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="54.0" fitWidth="57.0" layoutX="402.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@excel.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="54.0" fitWidth="57.0" layoutX="402.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@excel.png" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="physicsHyper" layoutX="800.0" layoutY="343.0" text="Physics grades" textFill="#00ff6a" />
+      <Hyperlink fx:id="mathematicHyper" layoutX="766.0" layoutY="548.0" text="Mathematic graddes" textFill="#00ff6a" />
+      <Hyperlink fx:id="programmingHyper" layoutX="237.0" layoutY="346.0" text="Programming grades" textFill="#00ff6a" />
+      <Hyperlink fx:id="logicalCircuitHyper" layoutX="237.0" layoutY="548.0" text="Logical circuit grades" textFill="#00ff6a" />
+      <Button fx:id="backToHomePageButon" layoutX="933.0" layoutY="29.0" mnemonicParsing="false" onAction="#backToHomePageButtonHandler" style="-fx-background-color: yellow; -fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 );" text="Back to home page" />
+   </children>
+</AnchorPane>
