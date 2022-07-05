@@ -1,6 +1,8 @@
 package xatrock;
 
+import java.awt.Desktop;
 import java.awt.Font;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.DriverManager;
@@ -32,6 +34,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -41,16 +44,6 @@ import javax.swing.UIManager;
 
 
 public class LoginPageController implements Initializable {
-
-    
-    
-    private Thread thread = null;
-private SimpleDateFormat sdf = new SimpleDateFormat("mm:ss:S");
-private String[] split;
-private SimpleStringProperty min, sec, millis, sspTime;
-private long time;
-    
-    
     
     private Stage stage ;
     private Scene scene ;
@@ -100,9 +93,30 @@ private long time;
     private Label loginLabel;
     @FXML
     private ImageView opacityImage1;
+    @FXML
+    private Button temp;
+    @FXML
+    private Button loginWithQRCodeButton;
+   boolean scanResult= false ; 
+    
+    //TODO boolean scan_with_qr(){
+    // assign the result in scanResult variable ;
+    //}
+   
+     @FXML
+    private void ScanWithQRHandler(ActionEvent e) throws IOException{
+        if(scanResult){
+        Parent root = FXMLLoader.load(getClass().getResource("StudentHomePage.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       captchaCode = generateCaptchaString();
+      
+      captchaCode = generateCaptchaString();
      captchaLabel.setText(captchaCode);
      captchaLabel.setStyle("-fx-background-image:url('/xatrock/captcha.png');");
     AnimationTimer t = new animationTimer();
@@ -153,19 +167,14 @@ private long time;
         stage.setScene(scene);
         stage.show();
     }
+    
     @FXML
     private void temp (ActionEvent e) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("MakeExamPage.fxml"));
+ Parent root = FXMLLoader.load(getClass().getResource("StudentHomePage.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        scene = tempButton.getScene();
-        root.translateYProperty().set(scene.getHeight());
-        pane.getChildren().add(root);
-        Timeline timeLine = new Timeline();
-        KeyValue kv = new KeyValue(root.translateYProperty(),0,Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.seconds(1) , kv);
-        timeLine.getKeyFrames().add(kf);
-        timeLine.play();
-        
+        stage.setScene(scene);
+        stage.show();
     }
     @FXML
     private void LoginButtonHandler(ActionEvent e) throws IOException{
@@ -303,10 +312,7 @@ private long time;
         if(opacity<0){
           stop();    
         }
-      
-        
-        
-        
+   
     }
       
   }
