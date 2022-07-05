@@ -21,6 +21,6 @@
          </font>
       </Label>
       <Button fx:id="backToHomePageButton" layoutX="584.0" layoutY="494.0" mnemonicParsing="false" onAction="#backToHomePageButtonHandler" prefHeight="49.0" prefWidth="202.0" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: #9c62da;" text="Back to home page" />
-      <Button fx:id="backToHomeWorkPage" layoutX="349.0" layoutY="494.0" mnemonicParsing="false" onAction="#backToHomeWorkPage" prefHeight="49.0" prefWidth="194.0" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: #9c62da;" text="Back to homw work page" />
+      <Button fx:id="backToHomeWorkPage" layoutX="349.0" layoutY="494.0" mnemonicParsing="false" onAction="#backToHomeWorkPage" prefHeight="49.0" prefWidth="194.0" style="-fx-effect: innershadow( gaussian , rgba(0,0,0,0.4) , 20,0,0,0 ); -fx-background-color: #9c62da;" text="Back to home work page" />
    </children>
 </AnchorPane>
