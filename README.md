@@ -164,6 +164,7 @@ ________________________________________________________________________________
  # And Finally ...  
  ## Thanks :)
   
-    
+      This is the final project of "Advanced Programming" course at Ferdowsi University of Mashhad.  
+      Spring 2022,(Khordad 1401)
     
  
