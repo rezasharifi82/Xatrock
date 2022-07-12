@@ -9,6 +9,7 @@ and other features that will be explained further.
 ## Basic information:
 ### Graphics:
 - Javafx
+- Swing
 ### Database:
 - MySql
 ### Frameworks:
@@ -103,14 +104,34 @@ ________________________________________________________________________________
           
      
   > ***you can see more lesson page design on Screen shot folder of the project*** 
-  >      
-       
+  >   
+    
+    
   ![Student lesson](https://github.com/salehmhosseini/Xatrock/blob/master/screenshots/StudentApPage.png) 
   
   
+ ________________________________________________________________________________________________________________________________________________________ 
+  
+  ### Chat:
+   We use socket programming in order to connect client and server together.
+   Although,we've implemented server via Singleton designing pattern.
+   > ### ***Something to say:***
+   >   ***You can create client as much as you want (no limit)***
+   >   ***All Chats could be easily exported as pdf**
+   >   ***Messages would entirely save into database which means you have a simple cloud based messenger app :)***
+  
+   >  
+   >  
+   
+   
+  ![Chat](https://github.com/salehmhosseini/Xatrock/blob/master/screenshots/Chat.png) 
   
   
-      
+  
+  
+  ________________________________________________________________________________________________________________________________________________________
+  
+ #Thanks :)
   
     
     
