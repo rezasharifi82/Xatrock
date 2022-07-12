@@ -130,8 +130,39 @@ ________________________________________________________________________________
   
   
   ________________________________________________________________________________________________________________________________________________________
+  ### Exam Generator:
+  In this section teachers can easily create  tests!  
+      you should click on next question to add another question.  
+      at the end you should click on FIX button to save questions into database and even export it as PDF.  
+      Also you should check the correct answer.   
+        if you see [this](https://github.com/salehmhosseini/Xatrock/blob/master/screenshots/SuccessfullyMakeExam.png) after click on fix button, it means everythings went right
+      
+  ![Exam generator](https://github.com/salehmhosseini/Xatrock/blob/master/screenshots/makeExamPage.png)
+    
+    
+  ________________________________________________________________________________________________________________________________________________________
+ ### Student Grades:
+  In this part students can simply access their points which has been collected from exams.  
+  Also you can have excel export of your points and even PDF.     
+      
+  ![Grades](https://github.com/salehmhosseini/Xatrock/blob/master/screenshots/StudentGradeage.png)
+    
+    
+  ________________________________________________________________________________________________________________________________________________________
+### HomeWorks:
+  Students can easily upload or download their homeworks and also teachers can release new homeworks for students.  
+    each part would be updated in case of new homework release and other actions that've been commited.
+    
+    
+  ![Homeworks](https://github.com/salehmhosseini/Xatrock/blob/master/screenshots/StudentHomeWorkPage.png)
   
- #Thanks :)
+  
+  
+  ________________________________________________________________________________________________________________________________________________________
+  ________________________________________________________________________________________________________________________________________________________
+  
+ # And Finally ...  
+ ## Thanks :)
   
     
     
