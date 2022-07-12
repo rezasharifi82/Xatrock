@@ -36,7 +36,7 @@ On this page you can easily log into your account with couple of options:
    ![Xatrock CV Pro.](https://github.com/salehmhosseini/Xatrock/blob/master/screenshots/Computer%20Vision.png)
 
       
-
+________________________________________________________________________________________________________________________________________________________
   
   ### SignUp Page:
   Now on this page you can easily signup and create new account 
@@ -44,6 +44,73 @@ On this page you can easily log into your account with couple of options:
   >> We've used hibernate framework to handle all these transactions with database.  
     
     
+  
+  
+  
+  
+    
+    
+  ________________________________________________________________________________________________________________________________________________________
+      
+### Home page:  
+  We have two kind of homepage:  
+  1. **Teacher homepage**:
+        - Options:  
+          - Access to his lesson
+          - Chat
+          - Check current time
+          - Check Profile
+        - Abilities:  
+          - Add new lesson
+          - Check other students
+          - Change Profile
+ 2. **Student homepage**:
+      - Options:
+        - Same as teacher
+      - Ability:
+        - Change Profile  
+          
+   >  ### Also we have dark theme in our GUI Design :) [***see this***](https://github.com/salehmhosseini/Xatrock/blob/master/screenshots/StudentHomepageDarkThem.png) 
+   
+   
+  ![Teacher homepage](https://github.com/salehmhosseini/Xatrock/blob/master/screenshots/TeacherHomePage.png) 
+   
+  ________________________________________________________________________________________________________________________________________________________
+    
+    
+  ### Lesson Page:
+  1. **Teacher Lesson Page Controller**:
+       - Attributes:  
+         - Back to home page
+         - messenger of that lesson
+       - Functions:  
+         - Add new student
+         - Enter exam grades
+         - Make new exam
+         - Create new homework
+     
+  ![Teacher lesson](https://github.com/salehmhosseini/Xatrock/blob/master/screenshots/TeacherAPPage.png) 
+    
+    
+      
+   2.   **Student homepage Lesson Page Controller**:
+        - Attributes:
+          - Same as teacher
+        - Functions:
+          - Check exams
+          - check his own grades
+          - Check newest homework
+          
+     
+  > ***you can see more lesson page design on Screen shot folder of the project*** 
+  >      
+       
+  ![Student lesson](https://github.com/salehmhosseini/Xatrock/blob/master/screenshots/StudentApPage.png) 
+  
+  
+  
+  
+      
   
     
     
